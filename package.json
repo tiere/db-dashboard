@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tiere/turbo-couscous/issues"
   },
-  "homepage": "https://github.com/tiere/turbo-couscous#readme"
+  "homepage": "https://github.com/tiere/turbo-couscous#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
