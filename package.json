@@ -1,0 +1,19 @@
+{
+  "name": "turbo-couscous",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiere/turbo-couscous.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tiere/turbo-couscous/issues"
+  },
+  "homepage": "https://github.com/tiere/turbo-couscous#readme"
+}
