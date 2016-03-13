@@ -28,7 +28,10 @@
   });
 
   gulp.task('scripts', function () {
-    return gulp.src('./assets/javascripts/**/*.js')
+    return gulp.src([
+      './assets/javascripts/jquery/jquery-2.2.1.js',
+      './assets/javascripts/bootstrap/bootstrap.js'
+    ])
       .pipe(concat('all.js'))
       .pipe(uglify())
       .pipe(gulp.dest('./public/javascripts'));
