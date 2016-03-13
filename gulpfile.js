@@ -8,12 +8,13 @@
   var uglify   = require('gulp-uglify');
 
   gulp.task('default', function () {
-    gulp.start('styles', 'scripts');
+    gulp.start('styles', 'scripts', 'fonts');
   });
 
-  gulp.task('watch', ['styles', 'scripts'], function () {
+  gulp.task('watch', ['styles', 'scripts', 'fonts'], function () {
     gulp.watch('./assets/stylesheets/**/*.scss', ['styles']);
     gulp.watch('./assets/javascripts/**/*.js', ['scripts']);
+    gulp.watch('./assets/fonts/bootstrap/*', ['fonts']);
   });
 
   gulp.task('styles', function () {
@@ -29,5 +30,10 @@
       .pipe(concat('all.js'))
       .pipe(uglify())
       .pipe(gulp.dest('./public/javascripts'));
+  });
+
+  gulp.task('fonts', function () {
+    return gulp.src('./assets/fonts/bootstrap/*')
+      .pipe(gulp.dest('./public/fonts/bootstrap'));
   });
 }());
