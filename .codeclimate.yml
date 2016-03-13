@@ -15,4 +15,4 @@ ratings:
   paths:
   - "**.css"
   - "**.js"
-exclude_paths: ['public']
+exclude_paths: ['public', 'assets/stylesheets/bootstrap', 'assets/javascripts/bootstrap', 'assets/javascripts/jquery']
