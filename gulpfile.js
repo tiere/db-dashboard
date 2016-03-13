@@ -1,11 +1,12 @@
 (function () {
   'use strict';
 
-  var cleanCSS = require('gulp-clean-css');
-  var concat   = require('gulp-concat');
-  var gulp     = require('gulp');
-  var sass     = require('gulp-sass');
-  var uglify   = require('gulp-uglify');
+  var autoprefixer = require('gulp-autoprefixer');
+  var cleanCSS     = require('gulp-clean-css');
+  var concat       = require('gulp-concat');
+  var gulp         = require('gulp');
+  var sass         = require('gulp-sass');
+  var uglify       = require('gulp-uglify');
 
   gulp.task('default', function () {
     gulp.start('styles', 'scripts', 'fonts');
@@ -21,6 +22,7 @@
     return gulp.src('./assets/stylesheets/**/*.scss')
       .pipe(sass().on('error', sass.logError))
       .pipe(concat('all.css'))
+      .pipe(autoprefixer())
       .pipe(cleanCSS())
       .pipe(gulp.dest('./public/stylesheets'));
   });
