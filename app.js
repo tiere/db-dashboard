@@ -1,12 +1,15 @@
 'use strict';
 
+require('dotenv').config();
+
 var bodyParser   = require('body-parser');
 var cookieParser = require('cookie-parser');
 var express      = require('express');
 var logger       = require('morgan');
 var path         = require('path');
 
-var routes = require('./routes/index');
+var database = require('./config/database');
+var routes   = require('./routes/index');
 
 var app = express();
 
