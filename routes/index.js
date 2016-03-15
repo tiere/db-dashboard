@@ -1,11 +1,11 @@
-'use strict';
+var dataAccess = require('../classes/data_access');
+var express    = require('express');
+var router     = express.Router();
 
-var express = require('express');
-var router  = express.Router();
-
-/* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+  dataAccess.listTables().then((result) => {
+    res.render('index', { title: 'Express', result });
+  });
 });
 
 module.exports = router;

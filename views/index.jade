@@ -3,3 +3,14 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  table
+    thead
+      tr
+        each field in result.fields
+          th= field.name
+    tbody
+      each row in result.rows
+        tr
+          each cell in row
+            td= cell
