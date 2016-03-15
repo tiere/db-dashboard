@@ -1,7 +1,5 @@
-'use strict';
-
-var mysql  = require('mysql');
 var config = require('./config');
+var mysql  = require('mysql');
 
 var connection = mysql.createConnection({
   host: config.db.host,
