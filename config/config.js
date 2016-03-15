@@ -1,5 +1,3 @@
-'use strict';
-
 var config = {
   db: {
     host: process.env.DB_HOST,
