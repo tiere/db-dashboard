@@ -8,8 +8,7 @@ var express      = require('express');
 var logger       = require('morgan');
 var path         = require('path');
 
-var database = require('./config/database');
-var routes   = require('./routes/index');
+var routes = require('./routes/index');
 
 var app = express();
 
