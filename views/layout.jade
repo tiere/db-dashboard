@@ -9,6 +9,10 @@ html(lang='en')
     link(rel='stylesheet', href='/stylesheets/all.css')
   body
     .container-fluid
-      block content
+      .row
+        .col-md-3
+          include ./partials/table_list.jade
+        .col-md-9
+          block content
 
     script(src='javascripts/all.js')
