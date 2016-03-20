@@ -29,7 +29,8 @@ gulp.task('styles', function () {
 gulp.task('scripts', function () {
   return gulp.src([
     './assets/javascripts/jquery/jquery-2.2.1.js',
-    './assets/javascripts/bootstrap/bootstrap.js'
+    './assets/javascripts/bootstrap/bootstrap.js',
+    './assets/javascripts/scripts.js'
   ])
     .pipe(concat('all.js'))
     .pipe(uglify())
