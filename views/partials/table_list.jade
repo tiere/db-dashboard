@@ -1,8 +1,3 @@
-table.table.table-bordered.table-hover
-  thead
-    tr
-      th Tables in database
-  tbody
-    each table in tables
-      tr
-        td= table.name
+.list-group.table-list
+  each table in tables
+    a(href='#', data-table-name=table.name).list-group-item= table.name
