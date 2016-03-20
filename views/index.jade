@@ -4,13 +4,8 @@ block content
   h1= title
   p Welcome to #{title}
 
-  table
-    thead
-      tr
-        each field in result.fields
-          th= field.name
+  table.table-bordered
     tbody
-      each row in result.rows
+      each table in tables
         tr
-          each cell in row
-            td= cell
+          td= table.name
