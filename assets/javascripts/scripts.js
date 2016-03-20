@@ -30,7 +30,7 @@
 
       for (var col in data.rows[i]) {
         if (data.rows[i].hasOwnProperty(col)) {
-          table.push('<td class="no-wrap">' + data.rows[i][col] + '</td>');
+          table.push('<td>' + data.rows[i][col] + '</td>');
         }
       }
 
