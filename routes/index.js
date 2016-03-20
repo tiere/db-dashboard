@@ -1,13 +1,8 @@
-var Database = require('../classes/database');
-var express  = require('express');
-var router   = express.Router();
-
-var database = new Database;
+var express = require('express');
+var router  = express.Router();
 
 router.get('/', function (req, res, next) {
-  database.tables.then((tables) => {
-    res.render('index', { title: 'Express', tables });
-  });
+  res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
