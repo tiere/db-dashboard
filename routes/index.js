@@ -1,10 +1,12 @@
-var dataAccess = require('../classes/data_access');
-var express    = require('express');
-var router     = express.Router();
+var Database = require('../classes/database');
+var express  = require('express');
+var router   = express.Router();
+
+var database = new Database;
 
 router.get('/', function (req, res, next) {
-  dataAccess.listTables().then((result) => {
-    res.render('index', { title: 'Express', result });
+  database.tables.then((tables) => {
+    res.render('index', { title: 'Express', tables });
   });
 });
 
