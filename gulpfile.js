@@ -1,10 +1,17 @@
 'use strict';
 
+var argv         = require('yargs').argv;
 var autoprefixer = require('gulp-autoprefixer');
+var babelify     = require('babelify');
+var browserify   = require('browserify');
+var buffer       = require('vinyl-buffer');
 var cleanCSS     = require('gulp-clean-css');
 var concat       = require('gulp-concat');
 var gulp         = require('gulp');
+var gulpif       = require('gulp-if');
 var sass         = require('gulp-sass');
+var source       = require('vinyl-source-stream');
+var sourcemaps   = require('gulp-sourcemaps');
 var uglify       = require('gulp-uglify');
 
 gulp.task('default', function () {
@@ -27,13 +34,19 @@ gulp.task('styles', function () {
 });
 
 gulp.task('scripts', function () {
-  return gulp.src([
-    './assets/javascripts/jquery/jquery-2.2.1.js',
-    './assets/javascripts/bootstrap/bootstrap.js',
-    './assets/javascripts/scripts.js'
-  ])
-    .pipe(concat('all.js'))
-    .pipe(uglify())
+  var b = browserify({
+    entries: ['./assets/javascripts/main.js'],
+    debug: true
+  });
+
+  b.transform(babelify, { presets: ['es2015', 'react'] });
+
+  return b.bundle()
+    .pipe(source('all.js'))
+    .pipe(buffer())
+    .pipe(gulpif(!argv.production, sourcemaps.init({ loadMaps: true })))
+    .pipe(gulpif(argv.production, uglify()))
+    .pipe(gulpif(!argv.production, sourcemaps.write('./')))
     .pipe(gulp.dest('./public/javascripts'));
 });
 
