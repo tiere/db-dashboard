@@ -1,4 +1,4 @@
-'use strict';
+require('dotenv').config();
 
 var argv         = require('yargs').argv;
 var autoprefixer = require('gulp-autoprefixer');
