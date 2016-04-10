@@ -17,10 +17,8 @@ class Database {
         if (error) return reject(error);
 
         for (let row of rows) {
-          _tables.push(new Table(row[fields[0].name]));
+          _tables.push(new Table(row[fields[0].name], this._dbConnection));
         }
-
-        this._dbConnection.end();
 
         return resolve(_tables);
       });

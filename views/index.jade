@@ -1,11 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-
-  table.table-bordered
-    tbody
-      each table in tables
+  table#tableRows.table.table-bordered.table-hover.table-condensed.no-wrap
+    if fields && rows
+      thead
         tr
-          td= table.name
+          each field in fields
+            th= field.name
+      tbody
+        each row in rows
+          tr
+            each cell in row
+              td= cell

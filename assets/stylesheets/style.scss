@@ -1,0 +1,14 @@
+.window-height-scrollable {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.no-wrap {
+  th, td {
+    white-space: nowrap;
+  }
+}
+
+.table-list {
+  a { padding: 5px; }
+}

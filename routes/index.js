@@ -1,12 +1,15 @@
-var Database = require('../classes/database');
-var express  = require('express');
-var router   = express.Router();
-
-var database = new Database;
+var express = require('express');
+var router  = express.Router();
 
 router.get('/', function (req, res, next) {
-  database.tables.then((tables) => {
-    res.render('index', { title: 'Express', tables });
+  res.render('index');
+});
+
+router.get('/tables/:table/rows', function (req, res, next) {
+  var table = res.locals.tables.find(x => x.name === req.params.table);
+
+  table.rows.then((result) => {
+    res.json(result);
   });
 });
 
